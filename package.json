@@ -16,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/hollywoodchase/liri-node-app/issues"
   },
-  "homepage": "https://github.com/hollywoodchase/liri-node-app#readme"
+  "homepage": "https://github.com/hollywoodchase/liri-node-app#readme",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "moment": "^2.24.0",
+    "node-cmd": "^3.0.0",
+    "node-spotify-api": "^1.1.1"
+  }
 }
