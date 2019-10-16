@@ -3,14 +3,13 @@ var keys = require("./keys.js");
 var fs = require('fs');
 var axios = require('axios');
 var moment = require('moment');
-// var spotify = new Spotify(keys.spotify);
-var cmd = process.argv[2];
+var command = process.argv[2];
 var input = process.argv[3];
 for (let i = 4; i < (process.argv).length; i++) {
     input += "+" + process.argv[i];
 }
 var movieInfo = [];
-
+console.log('hello');
 var getMovieInfo = function (qURL) {
     axios.get(qURL).then(function (response) {
         movieInfo.push(response.data.Title, response.data.Year, response.data.Rated, response.data.Ratings[1], response.data.Country, response.data.Language, response.data.Plot, response.data.Actors);
@@ -18,7 +17,7 @@ var getMovieInfo = function (qURL) {
     });
 }
 
-switch (cmd) {
+switch (command) {
     case "concert-this":
         var queryURL = "https://rest.bandsintown.com/artists/" + input + "/events?app_id=codingbootcamp";
         axios.get(queryURL).then(function (response) {
@@ -56,8 +55,19 @@ switch (cmd) {
     case "do-what-it-says":
         var cmd = require('node-cmd');
 
-        cmd.run('node liri.js movie-this bambi');
-        break;
+        fs.readFile('random.txt', 'utf8', function(err, text) {
+            cmd.get(
+                `node liri.js ` + text,
+                function(err, data, stderr){
+                    if (!err) {
+                       console.log(data)
+                    } else {
+                       console.log('error', err)
+                    }
+         
+                }
+            );
+        });
         
 }
 
