@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/hollywoodchase/liri-node-app#readme",
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "child_process": "^1.0.2",
     "moment": "^2.24.0",
     "node-cmd": "^3.0.0",
